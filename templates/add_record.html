@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Patient Record</h2>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+  <label>Patient ID
+    <input name="pid" required>
+  </label>
+  <label>Medical Record Details
+    <textarea name="data" rows="6" required></textarea>
+  </label>
+  <button type="submit">Store Record</button>
+</form>
+{% endblock %}

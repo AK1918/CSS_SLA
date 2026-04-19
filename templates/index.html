@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="card hero">
+  <h2>Secure Patient Data</h2>
+  <p class="muted">This demo illustrates integrity (SHA-256) and confidentiality (AES-256). Use the actions below to register users, store encrypted patient records, and verify data integrity against the ledger.</p>
+  <div class="links" style="margin-top:1rem;">
+    <a class="button" href="{{ url_for('register') }}">Register User</a>
+    <a class="button secondary" href="{{ url_for('add_record') }}">Add Patient Record</a>
+    <a class="button" href="{{ url_for('verify') }}">Verify Integrity</a>
+  </div>
+</section>
+
+<section class="card" style="margin-top:1rem">
+  <h3>Quick Tips</h3>
+  <ul class="muted">
+    <li>Keys and data are stored in-memory for this demo only.</li>
+    <li>Use realistic sample records when testing integrity checks.</li>
+  </ul>
+</section>
+
+{% endblock %}

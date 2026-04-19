@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Verify Data Integrity</h2>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+  <label>Patient ID
+    <input name="pid" required>
+  </label>
+  <label>Data to verify
+    <textarea name="data" rows="6" required></textarea>
+  </label>
+  <button type="submit">Verify</button>
+</form>
+
+{% if result is not none %}
+  {% if result %}
+    <p style="color:green">✅ INTEGRITY VERIFIED</p>
+  {% else %}
+    <p style="color:red">❌ INTEGRITY BREACH</p>
+  {% endif %}
+{% endif %}
+
+{% endblock %}
